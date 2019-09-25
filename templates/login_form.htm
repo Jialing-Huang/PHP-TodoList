@@ -1,0 +1,41 @@
+{% extends "main.htm" %}
+{% block content %}
+  <div class="text-center my-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-left">
+
+          {% if error != "" %}
+          <h1 class="text-capitalize display-4 font-weight-bold text-m">Don't forget about...</h1>
+          <p class="lead text-muted">{{error}} </p>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+          <div class="card p-5 bg-secondary">
+            <div class="card-body">
+              <h1 class="mb-4">Acess Extra Features</h1>
+              <form action="{{ form_action }}" method="POST">
+                <div class="form-group">
+                  <label>Username</label>
+                  <input type="text" class="form-control" name="uname">
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" class="form-control" name="psw">
+                </div>
+                <button type="submit" class="btn btn-info mt-2">Login</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

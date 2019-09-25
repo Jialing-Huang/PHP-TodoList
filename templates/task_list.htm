@@ -1,0 +1,62 @@
+{% extends "main.htm" %}
+{% block content %}
+<div class="text-center my-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-left">
+        <!--<h1 class="text-capitalize display-4 font-weight-bold text-m">Don't forget about...</h1>
+        <p class="lead text-muted">Create a little list in order to help me not forget about all the things I ususally forget about.</p>
+        -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>List of All the Tasks I Need to Not Forget About</h2>
+        <hr class="my-1"> </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 p-3">
+        <table class="table table-compact table-hover table-striped table-bordered">
+          <tbody>
+            <!-- Example of a table rows for a user is NOT logged in and a task is NOT completed -->
+           {% for item in items %}
+            <tr>
+             {% if item.completed == 0 %}
+              <td>
+                <h4 class="mb-1">{{item.name}}
+                  <small class="text-muted">{{item.date_added|date("F jS \\a\\t g:ia") }}</small>
+                </h4>
+                <p class="mb-0"> {{item.description}}</p>
+              </td>
+              {% else %}
+              <td class="completed text-muted">
+                  <h4 class="mb-1">{{item.name}}
+                    <small class="text-muted">{{item.date_added|date("F jS \\a\\t g:ia") }}</small>
+                  </h4>
+                  <p class="mb-0"> {{item.description}}</p>
+              </td>
+              {% endif %}
+              <td class="text-right">
+                {% if item.completed == 0 %}
+                <form class="m-0">
+                    <!--<input type="submit" class="btn btn-success btn-sm mb-1" value="Completed">-->
+                  <a class="btn btn-success btn-sm mb-1" href="index.php?name={{item.name}}&date={{item.date_added}}">Completed</a>               
+                  <!--<input type="submit" class="btn btn-warning btn-sm  mb-1" name = "delete" value="Delete">-->
+                  <a class="btn btn-warning btn-sm  mb-1" href="index.php?name={{item.name}}&date={{item.date_added}}&delete=1">Delete</a>                
+                  <input type="hidden">
+                </form>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

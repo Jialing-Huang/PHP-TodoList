@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- PAGE settings -->
+  <link rel="icon">
+  <title>PHP Programming Test</title>
+  <meta name="description" content="This is a the _____ Page">
+  <meta name="author" content="Steph Moreau">
+  <!-- CSS dependencies -->
+  <link rel="stylesheet" href="styles/main.css"> </head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="images/logo.png" alt="Test Logo"> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+
+          {% if is_logged_in %}
+          <li class="nav-item active">
+              <div class="nav-link" >Hello {{ user_name }}</div>
+          </li>
+          {% endif %}
+
+          <li class="nav-item active">
+            <a class="nav-link" href="index.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="create_task.php">Add</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout.php">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% block content %}
+  {% endblock %}
+
+  <footer class="footer section-fade-in-out py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>PHP Programming Test</h5>
+          <hr class="my-1">
+          <div class="row">
+            <div class="col-6 col-md-12">
+              <ul class="list-unstyled">
+                <li>
+                  <a href="index.php">Home</a>
+                </li>
+                <li>
+                  <a href="create_task.php">Create a New Task</a>
+                </li>
+                <li>
+                  <a href="login.php">Login</a>
+                </li>
+                <li>
+                  <a href="logout.php">Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 offset-md-2">
+          <h5 class="text-md-right">Hello Prince William or Guest</h5>
+          <hr class="my-1">
+          <p>Suspendisse velit lacus, euismod sed tempor at, congue sit amet libero. Donec sit amet urna arcu. Quisque est libero, dapibus non nibh at, convallis sollicitudin libero. Nam maximus maximus erat, id maximus elit hendrerit eget. Maecenas tortor nisi, viverra id posuere quis, ultrices non mi. Ut consectetur diam id consectetur porta. Ut maximus enim quis dictum elementum. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
